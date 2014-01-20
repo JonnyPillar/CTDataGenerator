@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using CTDataGenerator.Data;
 
 namespace CTDataGenerator
 {
@@ -24,10 +21,10 @@ namespace CTDataGenerator
         {
             CTEntities ctEntities = new CTEntities();
 
-            int currentNumberOfUsers = ctEntities.tbl_user.Count();
+            int currentNumberOfUsers = ctEntities.Users.Count();
 
             List<int> usersAgeRangeList = new List<int>();
-            tbl_user newUser = new tbl_user();
+            User newUser = new User();
             DateTime userDateOfBirth = new DateTime(1914, 1, 1);
             DateTime userJoinedDate = new DateTime(2013, 1, 1);
 
@@ -37,37 +34,37 @@ namespace CTDataGenerator
                 usersAgeRangeList.Add(0);
             }
 
-            Random gen = new Random(); 
+            Random gen = new Random();
             Console.WriteLine("Start");
 
-            for (int i = 0; i < 400; i++)
+            for (int i = 0; i < 999; i++)
             {
                 if (i + currentNumberOfUsers > 999) break;
-                newUser = new tbl_user();
+                newUser = new User();
                 userDateOfBirth = new DateTime(1914, 1, 1);
                 userJoinedDate = new DateTime(2013, 1, 1);
 
                 int birthdayRange = ((DateTime.Today.AddYears(-18)) - userDateOfBirth).Days;
                 userDateOfBirth = userDateOfBirth.AddDays(gen.Next(birthdayRange));
-                
+
                 int age = DateTime.Now.Year - userDateOfBirth.Year;
                 usersAgeRangeList[age]++;
 
-                newUser.user_dob = userDateOfBirth;
-                newUser.user_gender = Convert.ToSByte(gen.Next(0, 2));
-                newUser.user_password_hash = "";
-                newUser.user_password_salt = "";
+                newUser.DateOfBirth = userDateOfBirth;
+                newUser.Gender = Convert.ToSByte(gen.Next(0, 2));
+                newUser.PasswordHash = "";
+                newUser.PasswordSalt = "";
 
                 int creationRange = (DateTime.Today - userJoinedDate).Days;
                 userJoinedDate = userJoinedDate.AddDays(gen.Next(creationRange));
 
-                newUser.user_creation_timestamp = userJoinedDate;
-                newUser.user_admin = 0;
-                newUser.user_activity_level_type = gen.Next(1, 5);
+                newUser.CreationTimestamp = userJoinedDate;
+                newUser.AdminInt = 0;
+                newUser.ActivityLevel = gen.Next(1, 5);
 
-                newUser.tbl_activity_log = CreateActivity(newUser, (PersonType) newUser.user_activity_level_type);
+                newUser.tbl_activity_log = CreateActivity(newUser, (PersonType)newUser.ActivityLevel);
 
-                ctEntities.tbl_user.Add(newUser);
+                ctEntities.Users.Add(newUser);
                 Console.WriteLine(i);
                 countLabel.Text = i.ToString();
             }
@@ -88,10 +85,10 @@ namespace CTDataGenerator
             Console.WriteLine("End");
         }
 
-        public List<tbl_activity_log> CreateActivity(tbl_user user, PersonType personType)
+        public List<ActivityLog> CreateActivity(User user, PersonType personType)
         {
             //
-            List<tbl_activity_log> activityList = new List<tbl_activity_log>();
+            List<ActivityLog> activityList = new List<ActivityLog>();
             Random rand = new Random();
 
             if (personType == PersonType.Obese)
@@ -104,7 +101,7 @@ namespace CTDataGenerator
                 //6 Days off
                 int numberOfActivies = 1;
                 int activitySpacing = (int)Math.Ceiling(7.0 / numberOfActivies);
-                DateTime startTime = user.user_creation_timestamp;
+                DateTime startTime = user.CreationTimestamp;
 
                 double numberOfWeeks = (DateTime.Now - startTime).TotalDays / 7;
 
@@ -114,19 +111,19 @@ namespace CTDataGenerator
                 {
                     if (activityCount == numberOfActivies) break;
 
-                    tbl_activity_log activityLog = new tbl_activity_log();
+                    ActivityLog activityLog = new ActivityLog();
 
-                    activityLog.activity_log_id = Guid.NewGuid().ToString();
-                    activityLog.activity_log_start_date = startTime;
-                    activityLog.activity_log_activity_id = "1"; //TODO use differnt activities
-                    activityLog.activity_log_user_id = user.user_id;
-                    activityLog.activity_log_duration = new TimeSpan(rand.Next(15, 60), rand.Next(0, 60), 0);
-                    activityLog.activity_log_distance = rand.Next(2, 5);
-                    activityLog.activity_log_title = "Title";
-                    activityLog.activity_log_accent = 0;
-                    activityLog.activity_log_heart_rate = 0;
-                    activityLog.activity_log_notes = "";
-                    activityLog.activity_log_file_url = "";
+                    activityLog.LogID = Guid.NewGuid().ToString();
+                    activityLog.StartDate = startTime;
+                    activityLog.ActivityID = "1"; //TODO use differnt activities
+                    activityLog.UserID = user.UserID;
+                    activityLog.Duration = new TimeSpan(rand.Next(15, 60), rand.Next(0, 60), 0);
+                    activityLog.Distance = rand.Next(2, 5);
+                    activityLog.Title = "Title";
+                    activityLog.Accent = 0;
+                    activityLog.HeartRate = 0;
+                    activityLog.Notes = "";
+                    activityLog.FileURL = "";
 
                     activityList.Add(activityLog);
 
@@ -142,8 +139,8 @@ namespace CTDataGenerator
                 //4 days off
 
                 int numberOfActivies = 3;
-                int activitySpacing = (int) Math.Ceiling(7.0 / numberOfActivies);
-                DateTime startTime = user.user_creation_timestamp;
+                int activitySpacing = (int)Math.Ceiling(7.0 / numberOfActivies);
+                DateTime startTime = user.CreationTimestamp;
 
                 double numberOfWeeks = (DateTime.Now - startTime).TotalDays / 7;
 
@@ -153,19 +150,19 @@ namespace CTDataGenerator
                 {
                     if (activityCount == numberOfActivies) break;
 
-                    tbl_activity_log activityLog = new tbl_activity_log();
+                    ActivityLog activityLog = new ActivityLog();
 
-                    activityLog.activity_log_id = Guid.NewGuid().ToString();
-                    activityLog.activity_log_start_date = startTime;
-                    activityLog.activity_log_activity_id = "1"; //TODO use differnt activities
-                    activityLog.activity_log_user_id = user.user_id;
-                    activityLog.activity_log_duration = new TimeSpan(rand.Next(15, 60), rand.Next(0, 60), 0);
-                    activityLog.activity_log_distance = rand.Next(2, 5);
-                    activityLog.activity_log_title = "Title";
-                    activityLog.activity_log_accent = 0;
-                    activityLog.activity_log_heart_rate = 0;
-                    activityLog.activity_log_notes = "";
-                    activityLog.activity_log_file_url = "";
+                    activityLog.LogID = Guid.NewGuid().ToString();
+                    activityLog.StartDate = startTime;
+                    activityLog.ActivityID = "1"; //TODO use differnt activities
+                    activityLog.UserID = user.UserID;
+                    activityLog.Duration = new TimeSpan(rand.Next(15, 60), rand.Next(0, 60), 0);
+                    activityLog.Distance = rand.Next(2, 5);
+                    activityLog.Title = "Title";
+                    activityLog.Accent = 0;
+                    activityLog.HeartRate = 0;
+                    activityLog.Notes = "";
+                    activityLog.FileURL = "";
                     activityList.Add(activityLog);
 
                     startTime = startTime.AddDays(activitySpacing);
@@ -181,7 +178,7 @@ namespace CTDataGenerator
                 //2 days off
                 int numberOfActivies = 5;
                 int activitySpacing = (int)Math.Ceiling(7.0 / numberOfActivies);
-                DateTime startTime = user.user_creation_timestamp;
+                DateTime startTime = user.CreationTimestamp;
 
                 double numberOfWeeks = (DateTime.Now - startTime).TotalDays / 7;
 
@@ -191,19 +188,19 @@ namespace CTDataGenerator
                 {
                     if (activityCount == numberOfActivies) break;
 
-                    tbl_activity_log activityLog = new tbl_activity_log();
+                    ActivityLog activityLog = new ActivityLog();
 
-                    activityLog.activity_log_id = Guid.NewGuid().ToString();
-                    activityLog.activity_log_start_date = startTime;
-                    activityLog.activity_log_activity_id = "1"; //TODO use differnt activities
-                    activityLog.activity_log_user_id = user.user_id;
-                    activityLog.activity_log_duration = new TimeSpan(rand.Next(15, 60), rand.Next(0, 60), 0);
-                    activityLog.activity_log_distance = rand.Next(2, 5);
-                    activityLog.activity_log_title = "Title";
-                    activityLog.activity_log_accent = 0;
-                    activityLog.activity_log_heart_rate = 0;
-                    activityLog.activity_log_notes = "";
-                    activityLog.activity_log_file_url = "";
+                    activityLog.LogID = Guid.NewGuid().ToString();
+                    activityLog.StartDate = startTime;
+                    activityLog.ActivityID = "1"; //TODO use differnt activities
+                    activityLog.UserID = user.UserID;
+                    activityLog.Duration = new TimeSpan(rand.Next(15, 60), rand.Next(0, 60), 0);
+                    activityLog.Distance = rand.Next(2, 5);
+                    activityLog.Title = "Title";
+                    activityLog.Accent = 0;
+                    activityLog.HeartRate = 0;
+                    activityLog.Notes = "";
+                    activityLog.FileURL = "";
                     activityList.Add(activityLog);
 
                     startTime = startTime.AddDays(activitySpacing);
@@ -218,7 +215,7 @@ namespace CTDataGenerator
                 //1 Day off
                 int numberOfActivies = 6;
                 int activitySpacing = (int)Math.Ceiling(7.0 / numberOfActivies);
-                DateTime startTime = user.user_creation_timestamp;
+                DateTime startTime = user.CreationTimestamp;
 
                 double numberOfWeeks = (DateTime.Now - startTime).TotalDays / 7;
 
@@ -228,19 +225,19 @@ namespace CTDataGenerator
                 {
                     if (activityCount == numberOfActivies) break;
 
-                    tbl_activity_log activityLog = new tbl_activity_log();
+                    ActivityLog activityLog = new ActivityLog();
 
-                    activityLog.activity_log_id = Guid.NewGuid().ToString();
-                    activityLog.activity_log_start_date = startTime;
-                    activityLog.activity_log_activity_id = "1"; //TODO use differnt activities
-                    activityLog.activity_log_user_id = user.user_id;
-                    activityLog.activity_log_duration = new TimeSpan(rand.Next(15, 60), rand.Next(0, 60), 0);
-                    activityLog.activity_log_distance = rand.Next(2, 5);
-                    activityLog.activity_log_title = "Title";
-                    activityLog.activity_log_accent = 0;
-                    activityLog.activity_log_heart_rate = 0;
-                    activityLog.activity_log_notes = "";
-                    activityLog.activity_log_file_url = "";
+                    activityLog.LogID = Guid.NewGuid().ToString();
+                    activityLog.StartDate = startTime;
+                    activityLog.ActivityID = "1"; //TODO use differnt activities
+                    activityLog.UserID = user.UserID;
+                    activityLog.Duration = new TimeSpan(rand.Next(15, 60), rand.Next(0, 60), 0);
+                    activityLog.Distance = rand.Next(2, 5);
+                    activityLog.Title = "Title";
+                    activityLog.Accent = 0;
+                    activityLog.HeartRate = 0;
+                    activityLog.Notes = "";
+                    activityLog.FileURL = "";
                     activityList.Add(activityLog);
 
                     startTime = startTime.AddDays(activitySpacing);

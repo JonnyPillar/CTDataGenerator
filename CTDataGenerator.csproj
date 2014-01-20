@@ -52,20 +52,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CTModel.Context.cs">
+    <Compile Include="Data\Activity.cs">
+      <DependentUpon>CTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ActivityLog.cs">
+      <DependentUpon>CTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CTModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CTModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="CTModel.cs">
+    <Compile Include="Data\CTModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CTModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="CTModel.Designer.cs">
+    <Compile Include="Data\CTModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CTModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Food.cs">
+      <DependentUpon>CTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FoodLog.cs">
+      <DependentUpon>CTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MetricLog.cs">
+      <DependentUpon>CTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Models\User.cs" />
+    <Compile Include="Data\User.cs">
+      <DependentUpon>CTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\UserMetric.cs">
+      <DependentUpon>CTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\UserTarget.cs">
+      <DependentUpon>CTModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -75,30 +100,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="tbl_activity.cs">
-      <DependentUpon>CTModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tbl_activity_log.cs">
-      <DependentUpon>CTModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tbl_food.cs">
-      <DependentUpon>CTModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tbl_food_log.cs">
-      <DependentUpon>CTModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tbl_metric_log.cs">
-      <DependentUpon>CTModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tbl_user.cs">
-      <DependentUpon>CTModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tbl_user_metric.cs">
-      <DependentUpon>CTModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tbl_user_target.cs">
-      <DependentUpon>CTModel.tt</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -111,22 +112,26 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EntityDeploy Include="CTModel.edmx">
+    <EntityDeploy Include="Data\CTModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>CTModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="CTModel.Context.tt">
+    <None Include="CodeTemplates\Scaffolders\EntityMetadata\ControllerWithEntityMetadata.ps1" />
+    <None Include="CodeTemplates\Scaffolders\EntityMetadata\EF.Utility.CS.ttinclude" />
+    <None Include="CodeTemplates\Scaffolders\EntityMetadata\EntityMetadata.ps1" />
+    <None Include="CodeTemplates\Scaffolders\EntityMetadata\EntityMetadataHelperTemplate.cs.t4" />
+    <None Include="Data\CTModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>CTModel.edmx</DependentUpon>
       <LastGenOutput>CTModel.Context.cs</LastGenOutput>
     </None>
-    <None Include="CTModel.edmx.diagram">
+    <None Include="Data\CTModel.edmx.diagram">
       <DependentUpon>CTModel.edmx</DependentUpon>
     </None>
-    <None Include="CTModel.tt">
+    <None Include="Data\CTModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CTModel.edmx</DependentUpon>
       <LastGenOutput>CTModel.cs</LastGenOutput>
+      <DependentUpon>CTModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

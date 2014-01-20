@@ -7,23 +7,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CTDataGenerator
+namespace CTDataGenerator.Data
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class tbl_food
+    public partial class UserMetric
     {
-        public tbl_food()
+        public UserMetric()
         {
-            this.tbl_food_log = new HashSet<tbl_food_log>();
+            this.tbl_metric_log = new HashSet<MetricLog>();
+            this.tbl_user_target = new HashSet<UserTarget>();
         }
     
-        public string food_id { get; set; }
-        public string food_parent_id { get; set; }
-        public string food_name { get; set; }
-        public Nullable<double> food_quantity { get; set; }
+        public string MetricID { get; set; }
+        public string MetricName { get; set; }
+        public sbyte MetricType { get; set; }
     
-        public virtual ICollection<tbl_food_log> tbl_food_log { get; set; }
+        public virtual ICollection<MetricLog> tbl_metric_log { get; set; }
+        public virtual ICollection<UserTarget> tbl_user_target { get; set; }
     }
 }

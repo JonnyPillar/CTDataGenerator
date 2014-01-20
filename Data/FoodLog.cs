@@ -7,23 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CTDataGenerator
+namespace CTDataGenerator.Data
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class tbl_activity
+    public partial class FoodLog
     {
-        public tbl_activity()
-        {
-            this.tbl_activity_log = new HashSet<tbl_activity_log>();
-        }
+        public string FoodLogID { get; set; }
+        public string MealID { get; set; }
+        public int UserID { get; set; }
+        public decimal Quantity { get; set; }
+        public string CreationTimestamp { get; set; }
     
-        public string activity_id { get; set; }
-        public string activity_name { get; set; }
-        public decimal activity_calorie_burn_rate { get; set; }
-        public string activity_image_url { get; set; }
-    
-        public virtual ICollection<tbl_activity_log> tbl_activity_log { get; set; }
+        public virtual Food FoodLogFood { get; set; }
+        public virtual User FoodLogUser { get; set; }
     }
 }

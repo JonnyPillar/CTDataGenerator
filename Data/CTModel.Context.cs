@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CTDataGenerator
+namespace CTDataGenerator.Data
 {
     using System;
     using System.Data.Entity;
@@ -25,13 +25,13 @@ namespace CTDataGenerator
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<tbl_activity> tbl_activity { get; set; }
-        public DbSet<tbl_activity_log> tbl_activity_log { get; set; }
-        public DbSet<tbl_food> tbl_food { get; set; }
-        public DbSet<tbl_food_log> tbl_food_log { get; set; }
-        public DbSet<tbl_metric_log> tbl_metric_log { get; set; }
-        public DbSet<tbl_user> tbl_user { get; set; }
-        public DbSet<tbl_user_metric> tbl_user_metric { get; set; }
-        public DbSet<tbl_user_target> tbl_user_target { get; set; }
+        public DbSet<Activity> Activities { get; set; }
+        public DbSet<ActivityLog> ActivityLogs { get; set; }
+        public DbSet<Food> Foods { get; set; }
+        public DbSet<FoodLog> FoodLogs { get; set; }
+        public DbSet<MetricLog> MetricLogs { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<UserMetric> UserMetrics { get; set; }
+        public DbSet<UserTarget> UserTargets { get; set; }
     }
 }
