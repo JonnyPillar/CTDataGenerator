@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c9f9081f2aa1491794199579e0b4a71b" Name="Diagram1">
+        <EntityTypeShape EntityType="CTModel.tbl_activity" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CTModel.tbl_activity_log" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CTModel.tbl_food" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CTModel.tbl_food_log" Width="1.5" PointX="6" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CTModel.tbl_metric_log" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CTModel.tbl_user" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CTModel.tbl_user_metric" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CTModel.tbl_user_target" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
+        <AssociationConnector Association="CTModel.activity_id" ManuallyRouted="false" />
+        <AssociationConnector Association="CTModel.activity_user_id" ManuallyRouted="false" />
+        <AssociationConnector Association="CTModel.food_log_food_id" ManuallyRouted="false" />
+        <AssociationConnector Association="CTModel.food_log_user_id" ManuallyRouted="false" />
+        <AssociationConnector Association="CTModel.tbl_metric_id" ManuallyRouted="false" />
+        <AssociationConnector Association="CTModel.tbl_user_id" ManuallyRouted="false" />
+        <AssociationConnector Association="CTModel.user_id" ManuallyRouted="false" />
+        <AssociationConnector Association="CTModel.metric_id" ManuallyRouted="false" />
+        <AssociationConnector Association="CTModel.parent_target_id" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
