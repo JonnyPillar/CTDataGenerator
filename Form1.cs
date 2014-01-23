@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using CTDataGenerator.Data;
+using CTDataGenerator.Utils.CSVImport.FoodImport;
 
 namespace CTDataGenerator
 {
@@ -21,7 +22,10 @@ namespace CTDataGenerator
 
         private void connectDBButton_Click(object sender, EventArgs e)
         {
-            GenerateTimePerWeekChart();
+            FoodCsvImporter importer = new FoodCsvImporter();
+            importer.ProcessFoodDataFiles();
+
+            //GenerateTimePerWeekChart();
             return;
 
 
@@ -46,7 +50,7 @@ namespace CTDataGenerator
                 newUser.ActivityLevel = gen.Next(0, 5);
 
                 //Add Activites For Users
-                newUser.tbl_activity_log = CreateActivity(newUser, (PersonType) newUser.ActivityLevel);
+                newUser.ActivityLogs = CreateActivity(newUser, (PersonType) newUser.ActivityLevel);
 
                 //Record Age
                 usersAgeRangeList[DateTime.Now.Year - newUser.DateOfBirth.Year]++;
@@ -242,7 +246,7 @@ namespace CTDataGenerator
             IEnumerable<User> query = db.Users.Where(ru => ru.ActivityLevel == 4).ToList();
             foreach (User user in query)
             {
-                IEnumerable<ActivityLog> activityLog = user.tbl_activity_log.OrderBy(e => e.StartDate).ToList();
+                IEnumerable<ActivityLog> activityLog = user.ActivityLogs.OrderBy(e => e.StartDate).ToList();
                 foreach (var log in activityLog)
                 {
                     int startDays = (DateTime.Now - log.StartDate).Days;

@@ -48,6 +48,7 @@
           </Key>
           <Property Name="food_group_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="food_group_name" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="food_group_source_id" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tbl_food_log">
           <Key>
@@ -658,30 +659,31 @@
           <FunctionImport Name="activity_Count_Per_Week_For_User_Type2">
           <Parameter Name="userType" Mode="In" Type="Int32" />
           </FunctionImport>
-          <EntitySet Name="tbl_food_group" EntityType="CTModel.tbl_food_group" />
+          <EntitySet Name="FoodGroups" EntityType="CTModel.FoodGroup" />
           <EntitySet Name="tbl_food_unit" EntityType="CTModel.tbl_food_unit" />
-          <EntitySet Name="tbl_nutrient" EntityType="CTModel.tbl_nutrient" />
+          <EntitySet Name="Nutrients" EntityType="CTModel.Nutrient" />
           <AssociationSet Name="fk_food_group_id" Association="CTModel.fk_food_group_id">
-            <End Role="tbl_food_group" EntitySet="tbl_food_group" />
+            <End Role="tbl_food_group" EntitySet="FoodGroups" />
             <End Role="Food" EntitySet="Foods" />
           </AssociationSet>
-          <EntitySet Name="tbl_food_nutrient_log" EntityType="CTModel.tbl_food_nutrient_log" />
+          <EntitySet Name="FoodNutrientLogs" EntityType="CTModel.FoodNutrientLog" />
           <AssociationSet Name="fk_food_nutrient_food_id1" Association="CTModel.fk_food_nutrient_food_id1">
             <End Role="Food" EntitySet="Foods" />
-            <End Role="tbl_food_nutrient_log" EntitySet="tbl_food_nutrient_log" />
+            <End Role="tbl_food_nutrient_log" EntitySet="FoodNutrientLogs" />
           </AssociationSet>
           <AssociationSet Name="fk_food_nutrient_nutrient_id1" Association="CTModel.fk_food_nutrient_nutrient_id1">
-            <End Role="tbl_nutrient" EntitySet="tbl_nutrient" />
-            <End Role="tbl_food_nutrient_log" EntitySet="tbl_food_nutrient_log" />
+            <End Role="tbl_nutrient" EntitySet="Nutrients" />
+            <End Role="tbl_food_nutrient_log" EntitySet="FoodNutrientLogs" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="tbl_food_group">
+        <EntityType Name="FoodGroup">
           <Key>
             <PropertyRef Name="GroupID" />
           </Key>
           <Property Name="GroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Foods" Relationship="CTModel.fk_food_group_id" FromRole="tbl_food_group" ToRole="Food" />
+          <Property Name="SourceID" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="tbl_food_unit">
           <Key>
@@ -689,7 +691,7 @@
           </Key>
           <Property Name="food_unit" Type="String" Nullable="false" MaxLength="65532" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="tbl_nutrient">
+        <EntityType Name="Nutrient">
           <Key>
             <PropertyRef Name="NutrientID" />
           </Key>
@@ -701,7 +703,7 @@
           <NavigationProperty Name="Nutrients" Relationship="CTModel.fk_food_nutrient_nutrient_id1" FromRole="tbl_nutrient" ToRole="tbl_food_nutrient_log" />
         </EntityType>
         <Association Name="fk_food_group_id">
-          <End Type="CTModel.tbl_food_group" Role="tbl_food_group" Multiplicity="1">
+          <End Type="CTModel.FoodGroup" Role="tbl_food_group" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Type="CTModel.Food" Role="Food" Multiplicity="*" />
@@ -714,7 +716,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="tbl_food_nutrient_log">
+        <EntityType Name="FoodNutrientLog">
           <Key>
             <PropertyRef Name="NutrientLogID" />
           </Key>
@@ -729,7 +731,7 @@
           <End Type="CTModel.Food" Role="Food" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Type="CTModel.tbl_food_nutrient_log" Role="tbl_food_nutrient_log" Multiplicity="*" />
+          <End Type="CTModel.FoodNutrientLog" Role="tbl_food_nutrient_log" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Food">
               <PropertyRef Name="FoodID" />
@@ -740,10 +742,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_food_nutrient_nutrient_id1">
-          <End Type="CTModel.tbl_nutrient" Role="tbl_nutrient" Multiplicity="1">
+          <End Type="CTModel.Nutrient" Role="tbl_nutrient" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Type="CTModel.tbl_food_nutrient_log" Role="tbl_food_nutrient_log" Multiplicity="*" />
+          <End Type="CTModel.FoodNutrientLog" Role="tbl_food_nutrient_log" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tbl_nutrient">
               <PropertyRef Name="NutrientID" />
@@ -862,9 +864,10 @@
           <FunctionImportMapping FunctionImportName="activity_Count_Per_Week_For_User_Type1" FunctionName="CTModel.Store.activity_Count_Per_Week_For_User_Type" />
           <FunctionImportMapping FunctionImportName="activity_Count_Per_Week_For_User_Type2" FunctionName="CTModel.Store.activity_Count_Per_Week_For_User_Type" >
           </FunctionImportMapping>
-          <EntitySetMapping Name="tbl_food_group">
-            <EntityTypeMapping TypeName="CTModel.tbl_food_group">
+          <EntitySetMapping Name="FoodGroups">
+            <EntityTypeMapping TypeName="CTModel.FoodGroup">
               <MappingFragment StoreEntitySet="tbl_food_group">
+                <ScalarProperty Name="SourceID" ColumnName="food_group_source_id" />
                 <ScalarProperty Name="Name" ColumnName="food_group_name" />
                 <ScalarProperty Name="GroupID" ColumnName="food_group_id" />
               </MappingFragment>
@@ -877,8 +880,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tbl_nutrient">
-            <EntityTypeMapping TypeName="CTModel.tbl_nutrient">
+          <EntitySetMapping Name="Nutrients">
+            <EntityTypeMapping TypeName="CTModel.Nutrient">
               <MappingFragment StoreEntitySet="tbl_nutrient">
                 <ScalarProperty Name="DecimalRounding" ColumnName="nutrient_decimal_rounding" />
                 <ScalarProperty Name="Name" ColumnName="nutrient_name" />
@@ -888,8 +891,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tbl_food_nutrient_log">
-            <EntityTypeMapping TypeName="CTModel.tbl_food_nutrient_log">
+          <EntitySetMapping Name="FoodNutrientLogs">
+            <EntityTypeMapping TypeName="CTModel.FoodNutrientLog">
               <MappingFragment StoreEntitySet="tbl_food_nutrient_log">
                 <ScalarProperty Name="Value" ColumnName="food_nutrient_log_value" />
                 <ScalarProperty Name="NutrientID" ColumnName="food_nutrient_log_nutrient_id" />

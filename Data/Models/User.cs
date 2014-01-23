@@ -22,10 +22,10 @@ namespace CTDataGenerator.Data
             this.AdminInt = 0;
             this.CreationTimestamp = DateTime.Now;
 
-            this.tbl_activity_log = new HashSet<ActivityLog>();
-            this.tbl_food_log = new HashSet<FoodLog>();
-            this.tbl_metric_log = new HashSet<MetricLog>();
-            this.tbl_user_target = new HashSet<UserTarget>();
+            this.ActivityLogs = new HashSet<ActivityLog>();
+            this.FoodLogs = new HashSet<FoodLog>();
+            this.MetricLogs = new HashSet<MetricLog>();
+            this.Targets = new HashSet<UserTarget>();
         }
 
         /// <summary>
@@ -44,10 +44,10 @@ namespace CTDataGenerator.Data
             this.AdminInt = 0;
             this.CreationTimestamp = DateTime.Now;
 
-            this.tbl_activity_log = new HashSet<ActivityLog>();
-            this.tbl_food_log = new HashSet<FoodLog>();
-            this.tbl_metric_log = new HashSet<MetricLog>();
-            this.tbl_user_target = new HashSet<UserTarget>();
+            this.ActivityLogs = new HashSet<ActivityLog>();
+            this.FoodLogs = new HashSet<FoodLog>();
+            this.MetricLogs = new HashSet<MetricLog>();
+            this.Targets = new HashSet<UserTarget>();
         }
 
         /// <summary>
@@ -68,10 +68,10 @@ namespace CTDataGenerator.Data
             this.AdminInt = 0;
             this.CreationTimestamp = DateTime.Now;
 
-            this.tbl_activity_log = new HashSet<ActivityLog>();
-            this.tbl_food_log = new HashSet<FoodLog>();
-            this.tbl_metric_log = new HashSet<MetricLog>();
-            this.tbl_user_target = new HashSet<UserTarget>();
+            this.ActivityLogs = new HashSet<ActivityLog>();
+            this.FoodLogs = new HashSet<FoodLog>();
+            this.MetricLogs = new HashSet<MetricLog>();
+            this.Targets = new HashSet<UserTarget>();
         }
 
         /// <summary>
@@ -93,10 +93,10 @@ namespace CTDataGenerator.Data
             this.AdminInt = Convert.ToSByte(admin);
             this.CreationTimestamp = DateTime.Now;
 
-            this.tbl_activity_log = new HashSet<ActivityLog>();
-            this.tbl_food_log = new HashSet<FoodLog>();
-            this.tbl_metric_log = new HashSet<MetricLog>();
-            this.tbl_user_target = new HashSet<UserTarget>();
+            this.ActivityLogs = new HashSet<ActivityLog>();
+            this.FoodLogs = new HashSet<FoodLog>();
+            this.MetricLogs = new HashSet<MetricLog>();
+            this.Targets = new HashSet<UserTarget>();
         }
     }
 }
