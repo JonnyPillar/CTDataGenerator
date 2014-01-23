@@ -16,10 +16,10 @@ namespace CTDataGenerator.Data
     {
         public User()
         {
-            this.tbl_activity_log = new HashSet<ActivityLog>();
-            this.tbl_food_log = new HashSet<FoodLog>();
-            this.tbl_metric_log = new HashSet<MetricLog>();
-            this.tbl_user_target = new HashSet<UserTarget>();
+            this.ActivityLogs = new HashSet<ActivityLog>();
+            this.FoodLogs = new HashSet<FoodLog>();
+            this.MetricLogs = new HashSet<MetricLog>();
+            this.Targets = new HashSet<UserTarget>();
         }
     
         public int UserID { get; set; }
@@ -31,9 +31,9 @@ namespace CTDataGenerator.Data
         public System.DateTime CreationTimestamp { get; set; }
         public int ActivityLevel { get; set; }
     
-        public virtual ICollection<ActivityLog> tbl_activity_log { get; set; }
-        public virtual ICollection<FoodLog> tbl_food_log { get; set; }
-        public virtual ICollection<MetricLog> tbl_metric_log { get; set; }
-        public virtual ICollection<UserTarget> tbl_user_target { get; set; }
+        public virtual ICollection<ActivityLog> ActivityLogs { get; set; }
+        public virtual ICollection<FoodLog> FoodLogs { get; set; }
+        public virtual ICollection<MetricLog> MetricLogs { get; set; }
+        public virtual ICollection<UserTarget> Targets { get; set; }
     }
 }

@@ -26,7 +26,7 @@ namespace CTDataGenerator.Data
         public string FileURL { get; set; }
         public System.DateTime StartDate { get; set; }
     
-        public virtual Activity tbl_activity { get; set; }
-        public virtual User tbl_user { get; set; }
+        public virtual Activity Activity { get; set; }
+        public virtual User User { get; set; }
     }
 }

@@ -12,15 +12,14 @@ namespace CTDataGenerator.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class FoodLog
+    public partial class tbl_food_nutrient_log
     {
-        public string FoodLogID { get; set; }
-        public int MealID { get; set; }
-        public int UserID { get; set; }
-        public decimal Quantity { get; set; }
-        public System.DateTime CreationTimestamp { get; set; }
+        public int NutrientLogID { get; set; }
+        public int FoodID { get; set; }
+        public int NutrientID { get; set; }
+        public decimal Value { get; set; }
     
-        public virtual Food FoodLogFood { get; set; }
-        public virtual User FoodLogUser { get; set; }
+        public virtual Food Food { get; set; }
+        public virtual tbl_nutrient Nutrient { get; set; }
     }
 }

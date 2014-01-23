@@ -16,7 +16,7 @@ namespace CTDataGenerator.Data
     {
         public Activity()
         {
-            this.tbl_activity_log = new HashSet<ActivityLog>();
+            this.ActivityLogs = new HashSet<ActivityLog>();
         }
     
         public string ActivityID { get; set; }
@@ -24,6 +24,6 @@ namespace CTDataGenerator.Data
         public decimal CalorieBurnRate { get; set; }
         public string ImageURL { get; set; }
     
-        public virtual ICollection<ActivityLog> tbl_activity_log { get; set; }
+        public virtual ICollection<ActivityLog> ActivityLogs { get; set; }
     }
 }

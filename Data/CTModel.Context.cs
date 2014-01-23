@@ -36,6 +36,10 @@ namespace CTDataGenerator.Data
         public DbSet<User> Users { get; set; }
         public DbSet<UserMetric> UserMetrics { get; set; }
         public DbSet<UserTarget> UserTargets { get; set; }
+        public DbSet<tbl_food_group> tbl_food_group { get; set; }
+        public DbSet<tbl_food_unit> tbl_food_unit { get; set; }
+        public DbSet<tbl_nutrient> tbl_nutrient { get; set; }
+        public DbSet<tbl_food_nutrient_log> tbl_food_nutrient_log { get; set; }
     
         public virtual int ActivityCount(Nullable<int> type)
         {

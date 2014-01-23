@@ -4,15 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c9f9081f2aa1491794199579e0b4a71b" Name="Diagram1" ZoomLevel="77">
-        <EntityTypeShape EntityType="CTModel.Activity" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CTModel.ActivityLog" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="CTModel.Food" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CTModel.FoodLog" Width="1.5" PointX="6" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CTModel.MetricLog" Width="1.5" PointX="3.875" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CTModel.User" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="CTModel.UserMetric" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CTModel.UserTarget" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
+      <Diagram DiagramId="c9f9081f2aa1491794199579e0b4a71b" Name="Diagram1" ZoomLevel="88">
+        <EntityTypeShape EntityType="CTModel.Activity" Width="1.5" PointX="3.125" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CTModel.ActivityLog" Width="1.5" PointX="5.25" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CTModel.Food" Width="1.5" PointX="7.625" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CTModel.FoodLog" Width="1.5" PointX="8" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CTModel.MetricLog" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CTModel.User" Width="1.5" PointX="5.125" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="CTModel.UserMetric" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CTModel.UserTarget" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
         <AssociationConnector Association="CTModel.activity_id" ManuallyRouted="false" />
         <AssociationConnector Association="CTModel.activity_user_id" ManuallyRouted="false" />
         <AssociationConnector Association="CTModel.food_log_food_id" ManuallyRouted="false" />
@@ -22,6 +22,13 @@
         <AssociationConnector Association="CTModel.user_id" ManuallyRouted="false" />
         <AssociationConnector Association="CTModel.metric_id" ManuallyRouted="false" />
         <AssociationConnector Association="CTModel.parent_target_id" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CTModel.tbl_food_group" Width="1.5" PointX="5.125" PointY="3.625" />
+        <EntityTypeShape EntityType="CTModel.tbl_food_unit" Width="1.5" PointX="10.75" PointY="7.5" />
+        <EntityTypeShape EntityType="CTModel.tbl_nutrient" Width="1.5" PointX="12.75" PointY="4.5" />
+        <AssociationConnector Association="CTModel.fk_food_group_id" />
+        <EntityTypeShape EntityType="CTModel.tbl_food_nutrient_log" Width="2.5" PointX="9.75" PointY="3.875" />
+        <AssociationConnector Association="CTModel.fk_food_nutrient_food_id1" />
+        <AssociationConnector Association="CTModel.fk_food_nutrient_nutrient_id1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

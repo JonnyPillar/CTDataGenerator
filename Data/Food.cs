@@ -16,14 +16,20 @@ namespace CTDataGenerator.Data
     {
         public Food()
         {
-            this.tbl_food_log = new HashSet<FoodLog>();
+            this.FoodLogs = new HashSet<FoodLog>();
+            this.FoodNutrients = new HashSet<tbl_food_nutrient_log>();
         }
     
-        public string FoodID { get; set; }
-        public string ParentID { get; set; }
+        public int FoodID { get; set; }
+        public Nullable<int> ParentID { get; set; }
         public string Name { get; set; }
-        public Nullable<double> Quantity { get; set; }
+        public int SourceID { get; set; }
+        public int GroupID { get; set; }
+        public string Description { get; set; }
+        public string ManufacturerName { get; set; }
     
-        public virtual ICollection<FoodLog> tbl_food_log { get; set; }
+        public virtual ICollection<FoodLog> FoodLogs { get; set; }
+        public virtual tbl_food_group FoodGroup { get; set; }
+        public virtual ICollection<tbl_food_nutrient_log> FoodNutrients { get; set; }
     }
 }

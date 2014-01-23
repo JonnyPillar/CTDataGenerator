@@ -16,15 +16,15 @@ namespace CTDataGenerator.Data
     {
         public UserMetric()
         {
-            this.tbl_metric_log = new HashSet<MetricLog>();
-            this.tbl_user_target = new HashSet<UserTarget>();
+            this.MetricLogs = new HashSet<MetricLog>();
+            this.Targets = new HashSet<UserTarget>();
         }
     
         public string MetricID { get; set; }
         public string MetricName { get; set; }
         public sbyte MetricType { get; set; }
     
-        public virtual ICollection<MetricLog> tbl_metric_log { get; set; }
-        public virtual ICollection<UserTarget> tbl_user_target { get; set; }
+        public virtual ICollection<MetricLog> MetricLogs { get; set; }
+        public virtual ICollection<UserTarget> Targets { get; set; }
     }
 }

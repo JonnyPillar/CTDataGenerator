@@ -27,8 +27,8 @@ namespace CTDataGenerator.Data
         public string CreationTimestamp { get; set; }
         public string CompletedTimestamp { get; set; }
     
-        public virtual User tbl_user { get; set; }
-        public virtual UserMetric tbl_user_metric { get; set; }
+        public virtual User User { get; set; }
+        public virtual UserMetric Metric { get; set; }
         public virtual ICollection<UserTarget> tbl_user_target1 { get; set; }
         public virtual UserTarget tbl_user_target2 { get; set; }
     }

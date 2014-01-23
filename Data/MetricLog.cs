@@ -20,7 +20,7 @@ namespace CTDataGenerator.Data
         public decimal Value { get; set; }
         public System.DateTime CreationTimestamp { get; set; }
     
-        public virtual UserMetric tbl_user_metric { get; set; }
-        public virtual User tbl_user { get; set; }
+        public virtual UserMetric User { get; set; }
+        public virtual User Metric { get; set; }
     }
 }
