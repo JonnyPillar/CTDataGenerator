@@ -66,8 +66,8 @@
           <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="user_dob" Type="date" Nullable="false" />
           <Property Name="user_gender" Type="tinyint" Nullable="false" />
-          <Property Name="user_password_hash" Type="char" MaxLength="64" Nullable="false" />
-          <Property Name="user_password_salt" Type="char" MaxLength="64" Nullable="false" />
+          <Property Name="user_password_hash" Type="char" MaxLength="128" Nullable="false" />
+          <Property Name="user_password_salt" Type="char" MaxLength="128" Nullable="false" />
           <Property Name="user_admin" Type="tinyint" Nullable="false" />
           <Property Name="user_creation_timestamp" Type="datetime" Precision="0" Nullable="false" />
           <Property Name="user_activity_level_type" Type="int" Nullable="false" />
@@ -556,22 +556,13 @@
           <FunctionImport Name="activity_Count_Per_Week_For_User_Type">
           <Parameter Name="userType" Mode="In" Type="Int32" />
           </FunctionImport>
-          <EntitySet Name="Temps" EntityType="CTModel.Temp" />
-          <FunctionImport Name="activity_Count_Per_Week_For_User_Type1" EntitySet="Temps" ReturnType="Collection(CTModel.Temp)">
+          <FunctionImport Name="activity_Count_Per_Week_For_User_Type1">
           <Parameter Name="userType" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="activity_Count_Per_Week_For_User_Type2" EntitySet="Temps" ReturnType="Collection(CTModel.Temp)">
-            <Parameter Name="userType" Mode="In" Type="Int32" />
+          <FunctionImport Name="activity_Count_Per_Week_For_User_Type2">
+          <Parameter Name="userType" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
-        <EntityType Name="Temp" >
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="WeekNumber" Type="String" Nullable="false" />
-          <Property Name="Duration" Type="String" Nullable="false" />
-          <Property Name="ID" Type="String" Nullable="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -677,13 +668,6 @@
           <FunctionImportMapping FunctionImportName="activity_Count_Per_Week_For_User_Type" FunctionName="CTModel.Store.activity_Count_Per_Week_For_User_Type" />
           <FunctionImportMapping FunctionImportName="activity_Count_Per_Week_For_User_Type1" FunctionName="CTModel.Store.activity_Count_Per_Week_For_User_Type" />
           <FunctionImportMapping FunctionImportName="activity_Count_Per_Week_For_User_Type2" FunctionName="CTModel.Store.activity_Count_Per_Week_For_User_Type" >
-            <ResultMapping>
-              <EntityTypeMapping TypeName="CTModel.Temp">
-                <ScalarProperty Name="ID" ColumnName="activity_log_id" />
-                <ScalarProperty Name="WeekNumber" ColumnName="activity_log_start_date" />
-                <ScalarProperty Name="Duration" ColumnName="activity_log_duration" />
-              </EntityTypeMapping>
-            </ResultMapping>
           </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>

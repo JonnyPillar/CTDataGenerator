@@ -6,7 +6,7 @@ namespace CTDataGenerator.Utils
 {
     public class PasswordHasher
     {
-        private const int saltLength = 40;
+        private const int saltLength = 32;
         private string passwordHash;
         private string passwordSalt;
 
@@ -40,8 +40,8 @@ namespace CTDataGenerator.Utils
         private static byte[] generateHash(string password, string salt)
         {
             UTF8Encoding encoder = new UTF8Encoding();
-            SHA512Managed sha512Hasher = new SHA512Managed();
-            byte[] hashedDataBytes = sha512Hasher.ComputeHash(encoder.GetBytes(password + salt));
+            SHA256Managed sha256Hasher = new SHA256Managed();
+            byte[] hashedDataBytes = sha256Hasher.ComputeHash(encoder.GetBytes(password + salt));
             return hashedDataBytes;
         }
 

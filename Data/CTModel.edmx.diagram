@@ -22,7 +22,6 @@
         <AssociationConnector Association="CTModel.user_id" ManuallyRouted="false" />
         <AssociationConnector Association="CTModel.metric_id" ManuallyRouted="false" />
         <AssociationConnector Association="CTModel.parent_target_id" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="CTModel.Temp" Width="1.5" PointX="9.875" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

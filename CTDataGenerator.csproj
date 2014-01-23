@@ -80,15 +80,13 @@
     <Compile Include="Data\FoodLog.cs">
       <DependentUpon>CTModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\Gender.cs" />
     <Compile Include="Data\MetricLog.cs">
       <DependentUpon>CTModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\Models\Activity.cs" />
     <Compile Include="Data\Models\ActivityLog.cs" />
     <Compile Include="Data\Models\User.cs" />
-    <Compile Include="Data\Temp.cs">
-      <DependentUpon>CTModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Data\User.cs">
       <DependentUpon>CTModel.tt</DependentUpon>
     </Compile>

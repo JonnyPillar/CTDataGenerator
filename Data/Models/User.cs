@@ -1,4 +1,5 @@
-﻿using CTDataGenerator.Utils;
+﻿using System.Collections.Generic;
+using CTDataGenerator.Utils;
 using System;
 
 namespace CTDataGenerator.Data
@@ -20,6 +21,33 @@ namespace CTDataGenerator.Data
             this.PasswordSalt = passwordHasher.PasswordSalt;
             this.AdminInt = 0;
             this.CreationTimestamp = DateTime.Now;
+
+            this.tbl_activity_log = new HashSet<ActivityLog>();
+            this.tbl_food_log = new HashSet<FoodLog>();
+            this.tbl_metric_log = new HashSet<MetricLog>();
+            this.tbl_user_target = new HashSet<UserTarget>();
+        }
+
+        /// <summary>
+        /// User Constructor
+        /// </summary>
+        /// <param name="dateOfBirth">Date Of Birth</param>
+        /// <param name="gender">Gender</param>
+        /// <param name="password">Password String</param>
+        public User(DateTime dateOfBirth, Gender gender, string password)
+        {
+            this.DateOfBirth = dateOfBirth;
+            this.Gender = Convert.ToSByte(gender);
+            PasswordHasher passwordHasher = new PasswordHasher(password);
+            this.PasswordHash = passwordHasher.PasswordHash;
+            this.PasswordSalt = passwordHasher.PasswordSalt;
+            this.AdminInt = 0;
+            this.CreationTimestamp = DateTime.Now;
+
+            this.tbl_activity_log = new HashSet<ActivityLog>();
+            this.tbl_food_log = new HashSet<FoodLog>();
+            this.tbl_metric_log = new HashSet<MetricLog>();
+            this.tbl_user_target = new HashSet<UserTarget>();
         }
 
         /// <summary>
@@ -39,6 +67,11 @@ namespace CTDataGenerator.Data
             this.PasswordSalt = passwordHasher.PasswordSalt;
             this.AdminInt = 0;
             this.CreationTimestamp = DateTime.Now;
+
+            this.tbl_activity_log = new HashSet<ActivityLog>();
+            this.tbl_food_log = new HashSet<FoodLog>();
+            this.tbl_metric_log = new HashSet<MetricLog>();
+            this.tbl_user_target = new HashSet<UserTarget>();
         }
 
         /// <summary>
@@ -59,6 +92,11 @@ namespace CTDataGenerator.Data
             this.PasswordSalt = passwordHasher.PasswordSalt;
             this.AdminInt = Convert.ToSByte(admin);
             this.CreationTimestamp = DateTime.Now;
+
+            this.tbl_activity_log = new HashSet<ActivityLog>();
+            this.tbl_food_log = new HashSet<FoodLog>();
+            this.tbl_metric_log = new HashSet<MetricLog>();
+            this.tbl_user_target = new HashSet<UserTarget>();
         }
     }
 }

@@ -36,7 +36,6 @@ namespace CTDataGenerator.Data
         public DbSet<User> Users { get; set; }
         public DbSet<UserMetric> UserMetrics { get; set; }
         public DbSet<UserTarget> UserTargets { get; set; }
-        public DbSet<Temp> Temps { get; set; }
     
         public virtual int ActivityCount(Nullable<int> type)
         {
@@ -56,40 +55,22 @@ namespace CTDataGenerator.Data
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("activity_Count_Per_Week_For_User_Type", userTypeParameter);
         }
     
-        public virtual ObjectResult<Temp> activity_Count_Per_Week_For_User_Type1(Nullable<int> userType)
+        public virtual int activity_Count_Per_Week_For_User_Type1(Nullable<int> userType)
         {
             var userTypeParameter = userType.HasValue ?
                 new ObjectParameter("userType", userType) :
                 new ObjectParameter("userType", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Temp>("activity_Count_Per_Week_For_User_Type1", userTypeParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("activity_Count_Per_Week_For_User_Type1", userTypeParameter);
         }
     
-        public virtual ObjectResult<Temp> activity_Count_Per_Week_For_User_Type1(Nullable<int> userType, MergeOption mergeOption)
+        public virtual int activity_Count_Per_Week_For_User_Type2(Nullable<int> userType)
         {
             var userTypeParameter = userType.HasValue ?
                 new ObjectParameter("userType", userType) :
                 new ObjectParameter("userType", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Temp>("activity_Count_Per_Week_For_User_Type1", mergeOption, userTypeParameter);
-        }
-    
-        public virtual ObjectResult<Temp> activity_Count_Per_Week_For_User_Type2(Nullable<int> userType)
-        {
-            var userTypeParameter = userType.HasValue ?
-                new ObjectParameter("userType", userType) :
-                new ObjectParameter("userType", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Temp>("activity_Count_Per_Week_For_User_Type2", userTypeParameter);
-        }
-    
-        public virtual ObjectResult<Temp> activity_Count_Per_Week_For_User_Type2(Nullable<int> userType, MergeOption mergeOption)
-        {
-            var userTypeParameter = userType.HasValue ?
-                new ObjectParameter("userType", userType) :
-                new ObjectParameter("userType", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Temp>("activity_Count_Per_Week_For_User_Type2", mergeOption, userTypeParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("activity_Count_Per_Week_For_User_Type2", userTypeParameter);
         }
     }
 }
