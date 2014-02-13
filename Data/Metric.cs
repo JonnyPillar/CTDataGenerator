@@ -12,15 +12,17 @@ namespace CTDataGenerator.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class MetricLog
+    public partial class Metric
     {
-        public int MetricLogID { get; set; }
-        public Nullable<int> UserID { get; set; }
-        public Nullable<int> MetricID { get; set; }
-        public decimal Value { get; set; }
-        public System.DateTime CreationTimestamp { get; set; }
+        public Metric()
+        {
+            this.MetricLogs = new HashSet<MetricLog>();
+        }
     
-        public virtual Metric Metric { get; set; }
-        public virtual User User { get; set; }
+        public int MetricID { get; set; }
+        public string Name { get; set; }
+        public int Type { get; set; }
+    
+        public virtual ICollection<MetricLog> MetricLogs { get; set; }
     }
 }

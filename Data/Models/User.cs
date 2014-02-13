@@ -1,57 +1,55 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using CTDataGenerator.Utils;
-using System;
 
 namespace CTDataGenerator.Data
 {
     public partial class User
     {
         /// <summary>
-        /// User Constructor
+        ///     User Constructor
         /// </summary>
         /// <param name="dateOfBirth">Date Of Birth</param>
         /// <param name="gender">Gender</param>
         /// <param name="password">Password String</param>
         public User(DateTime dateOfBirth, int gender, string password)
         {
-            this.DateOfBirth = dateOfBirth;
-            this.Gender = Convert.ToSByte(gender);
-            PasswordHasher passwordHasher = new PasswordHasher(password);
-            this.PasswordHash = passwordHasher.PasswordHash;
-            this.PasswordSalt = passwordHasher.PasswordSalt;
-            this.AdminInt = 0;
-            this.CreationTimestamp = DateTime.Now;
+            DateOfBirth = dateOfBirth;
+            Gender = Convert.ToBoolean(gender);
+            var passwordHasher = new PasswordHasher(password);
+            PasswordHash = passwordHasher.PasswordHash;
+            PasswordSalt = passwordHasher.PasswordSalt;
+            AdminInt = 0;
+            CreationTimestamp = DateTime.Now;
 
-            this.ActivityLogs = new HashSet<ActivityLog>();
-            this.FoodLogs = new HashSet<FoodLog>();
-            this.MetricLogs = new HashSet<MetricLog>();
-            this.Targets = new HashSet<UserTarget>();
+            ActivityLogs = new HashSet<ActivityLog>();
+            FoodLogs = new HashSet<FoodLog>();
+            MetricLogs = new HashSet<MetricLog>();
         }
 
         /// <summary>
-        /// User Constructor
+        ///     User Constructor
         /// </summary>
         /// <param name="dateOfBirth">Date Of Birth</param>
         /// <param name="gender">Gender</param>
         /// <param name="password">Password String</param>
         public User(DateTime dateOfBirth, Gender gender, string password)
         {
-            this.DateOfBirth = dateOfBirth;
-            this.Gender = Convert.ToSByte(gender);
-            PasswordHasher passwordHasher = new PasswordHasher(password);
-            this.PasswordHash = passwordHasher.PasswordHash;
-            this.PasswordSalt = passwordHasher.PasswordSalt;
-            this.AdminInt = 0;
-            this.CreationTimestamp = DateTime.Now;
+            DateOfBirth = dateOfBirth;
+            Gender = Convert.ToBoolean(gender);
+            var passwordHasher = new PasswordHasher(password);
+            PasswordHash = passwordHasher.PasswordHash;
+            PasswordSalt = passwordHasher.PasswordSalt;
+            AdminInt = 0;
+            CreationTimestamp = DateTime.Now;
 
-            this.ActivityLogs = new HashSet<ActivityLog>();
-            this.FoodLogs = new HashSet<FoodLog>();
-            this.MetricLogs = new HashSet<MetricLog>();
-            this.Targets = new HashSet<UserTarget>();
+            ActivityLogs = new HashSet<ActivityLog>();
+            FoodLogs = new HashSet<FoodLog>();
+            MetricLogs = new HashSet<MetricLog>();
         }
 
         /// <summary>
-        /// User Constructor
+        ///     User Constructor
         /// </summary>
         /// <param name="userID">User ID</param>
         /// <param name="dateOfBirth">Date Of Birth</param>
@@ -59,23 +57,22 @@ namespace CTDataGenerator.Data
         /// <param name="password">Password String</param>
         public User(int userID, DateTime dateOfBirth, int gender, string password)
         {
-            this.UserID = userID;
-            this.DateOfBirth = dateOfBirth;
-            this.Gender = Convert.ToSByte(gender);
-            PasswordHasher passwordHasher = new PasswordHasher(password);
-            this.PasswordHash = passwordHasher.PasswordHash;
-            this.PasswordSalt = passwordHasher.PasswordSalt;
-            this.AdminInt = 0;
-            this.CreationTimestamp = DateTime.Now;
+            UserID = userID;
+            DateOfBirth = dateOfBirth;
+            Gender = Convert.ToBoolean(gender);
+            var passwordHasher = new PasswordHasher(password);
+            PasswordHash = passwordHasher.PasswordHash;
+            PasswordSalt = passwordHasher.PasswordSalt;
+            AdminInt = 0;
+            CreationTimestamp = DateTime.Now;
 
-            this.ActivityLogs = new HashSet<ActivityLog>();
-            this.FoodLogs = new HashSet<FoodLog>();
-            this.MetricLogs = new HashSet<MetricLog>();
-            this.Targets = new HashSet<UserTarget>();
+            ActivityLogs = new HashSet<ActivityLog>();
+            FoodLogs = new HashSet<FoodLog>();
+            MetricLogs = new HashSet<MetricLog>();
         }
 
         /// <summary>
-        /// User Constructor
+        ///     User Constructor
         /// </summary>
         /// <param name="userID">User ID</param>
         /// <param name="dateOfBirth">Date Of Birth</param>
@@ -84,44 +81,48 @@ namespace CTDataGenerator.Data
         /// <param name="admin">Admin Account</param>
         public User(int userID, DateTime dateOfBirth, int gender, string password, bool admin)
         {
-            this.UserID = userID;
-            this.DateOfBirth = dateOfBirth;
-            this.Gender = Convert.ToSByte(gender);
-            PasswordHasher passwordHasher = new PasswordHasher(password);
-            this.PasswordHash = passwordHasher.PasswordHash;
-            this.PasswordSalt = passwordHasher.PasswordSalt;
-            this.AdminInt = Convert.ToSByte(admin);
-            this.CreationTimestamp = DateTime.Now;
+            UserID = userID;
+            DateOfBirth = dateOfBirth;
+            Gender = Convert.ToBoolean(gender);
+            var passwordHasher = new PasswordHasher(password);
+            PasswordHash = passwordHasher.PasswordHash;
+            PasswordSalt = passwordHasher.PasswordSalt;
+            AdminInt = Convert.ToSByte(admin);
+            CreationTimestamp = DateTime.Now;
 
-            this.ActivityLogs = new HashSet<ActivityLog>();
-            this.FoodLogs = new HashSet<FoodLog>();
-            this.MetricLogs = new HashSet<MetricLog>();
-            this.Targets = new HashSet<UserTarget>();
+            ActivityLogs = new HashSet<ActivityLog>();
+            FoodLogs = new HashSet<FoodLog>();
+            MetricLogs = new HashSet<MetricLog>();
         }
 
         /// <summary>
-        /// Random User
+        ///     Random User
         /// </summary>
         /// <param name="activityLevel">Activity Level</param>
         /// <param name="personalityType">Personality Type</param>
         public User(ActivityLevel activityLevel, int personalityType)
         {
-            Random rand = new Random();
-            this.DateOfBirth = UserUtil.GenerateRandomAge();
-            this.Gender = Convert.ToSByte(rand.Next(0, 1));
-            PasswordHasher passwordHasher = new PasswordHasher("temppass123");
-            this.PasswordHash = passwordHasher.PasswordHash;
-            this.PasswordSalt = passwordHasher.PasswordSalt;
-            this.AdminInt = Convert.ToSByte(0);
-            this.CreationTimestamp = UserUtil.GenerateRandomJoinedDate();
+            var rand = new Random();
+            DateOfBirth = UserUtil.GenerateRandomAge();
+            Gender = Convert.ToBoolean(rand.Next(0, 1));
+            var passwordHasher = new PasswordHasher("temppass123");
+            PasswordHash = passwordHasher.PasswordHash;
+            PasswordSalt = passwordHasher.PasswordSalt;
+            AdminInt = Convert.ToSByte(0);
+            CreationTimestamp = UserUtil.GenerateRandomJoinedDate();
 
-            this.ActivityLevel = (int) activityLevel;
-            this.PersonalityType = personalityType;
+            ActivityLevel = (int) activityLevel;
+            Personality = personalityType;
 
-            this.ActivityLogs = new HashSet<ActivityLog>();
-            this.FoodLogs = new HashSet<FoodLog>();
-            this.MetricLogs = new HashSet<MetricLog>();
-            this.Targets = new HashSet<UserTarget>();
+            ActivityLogs = new HashSet<ActivityLog>();
+            FoodLogs = new HashSet<FoodLog>();
+            MetricLogs = new HashSet<MetricLog>();
+        }
+
+        public int AdminInt
+        {
+            get { return Convert.ToInt16(Admin); }
+            set { Admin = Convert.ToBoolean(value); }
         }
     }
 }

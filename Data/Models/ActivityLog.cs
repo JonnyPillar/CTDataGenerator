@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CTDataGenerator.Data
 {
@@ -12,9 +8,9 @@ namespace CTDataGenerator.Data
         {
         }
 
-        public ActivityLog(string activityId, int userId, TimeSpan duration, decimal distance, string title, decimal accent, int heartRate, string notes, string fileUrl, DateTime startDate)
+        public ActivityLog(int activityId, int userId, TimeSpan duration, decimal distance, string title, decimal accent,
+            int heartRate, string notes, string fileUrl, DateTime startDate)
         {
-            this.LogID = Guid.NewGuid().ToString();
             ActivityID = activityId;
             UserID = userId;
             Duration = duration;
