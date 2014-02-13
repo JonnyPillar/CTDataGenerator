@@ -98,5 +98,30 @@ namespace CTDataGenerator.Data
             this.MetricLogs = new HashSet<MetricLog>();
             this.Targets = new HashSet<UserTarget>();
         }
+
+        /// <summary>
+        /// Random User
+        /// </summary>
+        /// <param name="activityLevel">Activity Level</param>
+        /// <param name="personalityType">Personality Type</param>
+        public User(ActivityLevel activityLevel, int personalityType)
+        {
+            Random rand = new Random();
+            this.DateOfBirth = UserUtil.GenerateRandomAge();
+            this.Gender = Convert.ToSByte(rand.Next(0, 1));
+            PasswordHasher passwordHasher = new PasswordHasher("temppass123");
+            this.PasswordHash = passwordHasher.PasswordHash;
+            this.PasswordSalt = passwordHasher.PasswordSalt;
+            this.AdminInt = Convert.ToSByte(0);
+            this.CreationTimestamp = UserUtil.GenerateRandomJoinedDate();
+
+            this.ActivityLevel = (int) activityLevel;
+            this.PersonalityType = personalityType;
+
+            this.ActivityLogs = new HashSet<ActivityLog>();
+            this.FoodLogs = new HashSet<FoodLog>();
+            this.MetricLogs = new HashSet<MetricLog>();
+            this.Targets = new HashSet<UserTarget>();
+        }
     }
 }

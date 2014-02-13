@@ -30,6 +30,7 @@ namespace CTDataGenerator.Data
         public sbyte AdminInt { get; set; }
         public System.DateTime CreationTimestamp { get; set; }
         public int ActivityLevel { get; set; }
+        public int PersonalityType { get; set; }
     
         public virtual ICollection<ActivityLog> ActivityLogs { get; set; }
         public virtual ICollection<FoodLog> FoodLogs { get; set; }

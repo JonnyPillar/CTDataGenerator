@@ -4385,8 +4385,8 @@
 ~14438~^~1400~^~Water, bottled, non-carbonated, CRYSTAL GEYSER~^~WATER,BTLD,NON-CARBONATED,CRYSTAL GEYSER~^~~^~Crystal Geyser Alpine Spring Water~^~~^~~^0^~~^6.25^4.00^9.00^4.00
 ~14439~^~1400~^~Water, bottled, non-carbonated, NAYA~^~WATER,BTLD,NON-CARBONATED,NAYA~^~~^~NAYA Inc.~^~~^~~^0^~~^6.25^4.00^9.00^4.00
 ~14440~^~1400~^~Water, bottled, non-carbonated, DANNON Fluoride To Go~^~WATER,BTLD,NON-CARBONATED,DANNON FLUORIDE TO GO~^~~^~~^~~^~~^0^~~^6.25^4.00^9.00^4.00
-~14450~^~1400~^~Drink mix, QUAKER OATS, GATORADE, orange flavor, powder~^~DRINK MIX,QUAKER OATS,GATORADE,ORANGE FLAVOR,PDR~^~~^~Quaker Oats Company - The Gatorade Company,  a unit of Pepsi Co.~^~~^~~^0^~~^6.25^4.00^9.00^4.00
-~14460~^~1400~^~Beverages, PEPSICO QUAKER, Gatorade, G performance O 2, ready-to-drink.~^~BEVERAGES,PEPSICO QUAKER,GATORADE,G PERFORMANCE O 2,RTD.~^~thirst quencher, Gatorade G02 Perform~^~Quaker Oats Company - The Gatorade Company,  a unit of Pepsi Co.~^~Y~^~~^0^~~^6.25^4.00^9.00^4.00
+~14450~^~1400~^~Drink mix, QUAKER OATS, GATORADE, orange flavor, powder~^~DRINK MIX,QUAKER OATS,GATORADE,ORANGE FLAVOR,PDR~^~~^~Quaker Oats Company ,  a unit of Pepsi Co.~^~~^~~^0^~~^6.25^4.00^9.00^4.00
+~14460~^~1400~^~Beverages, PEPSICO QUAKER, Gatorade, G performance O 2, ready-to-drink.~^~BEVERAGES,PEPSICO QUAKER,GATORADE,G PERFORMANCE O 2,RTD.~^~thirst quencher, Gatorade G02 Perform~^~Quaker Oats Company ,  a unit of Pepsi Co.~^~Y~^~~^0^~~^6.25^4.00^9.00^4.00
 ~14461~^~1400~^~Beverages, COCA-COLA, POWERADE, lemon-lime flavored, ready-to-drink~^~BEVERAGES,COCA-COLA,POWERADE,LEMON-LIME FLAV,RTD~^~thirst quencher~^~The Coca-Cola Company~^~Y~^~~^0^~~^6.25^4.00^9.00^4.00
 ~14462~^~1400~^~Beverages, QUAKER OATS, Propel Zero, fruit-flavored, non-carbonated~^~BEVERAGES,QUAKER OATS,PROPEL ZERO,FRUIT-FLAVORED,NON-CARB~^~thirst quencher, sport drink~^~~^~Y~^~~^0^~~^^^^
 ~14475~^~1400~^~Tea, ready-to-drink, ARIZONA iced tea, with lemon flavor~^~TEA,RTD,ARIZONA ICED TEA,W/ LEMON FLAVOR~^~~^~Arizona Beverage Co.~^~~^~~^0^~~^6.25^4.00^9.00^4.00
@@ -4452,7 +4452,7 @@
 ~14639~^~1400~^~Rice drink, unsweetened, with added calcium, vitamins A and D~^~RICE DRK,UNSWTND,W/ ADDED CA,VITAMINS A & D~^~ricemilk, rice milk~^~~^~Y~^~~^0^~~^^^^
 ~14640~^~1400~^~Energy drink, VAULT, citrus flavor~^~ENERGY DRK,VAULT,CITRUS FLAVOR~^~~^~The Coca-Cola Company~^~Y~^~~^0^~~^6.25^^^
 ~14641~^~1400~^~Energy drink, VAULT Zero, sugar-free, citrus flavor~^~ENERGY DRK,VAULT ZERO,SUGAR-FREE,CITRUS FLAVOR~^~~^~The Coca-Cola Company~^~Y~^~~^0^~~^6.25^^^
-~14644~^~1400~^~Beverages, , PEPSICO QUAKER, Gatorade G2, low calorie~^~BEVERAGES,PEPSICO QUAKER,GATORADE G2,LO CAL~^~~^~Quaker Oats Company - The Gatorade Company,  a unit of Pepsi Co.~^~Y~^~~^0^~~^^^^
+~14644~^~1400~^~Beverages, , PEPSICO QUAKER, Gatorade G2, low calorie~^~BEVERAGES,PEPSICO QUAKER,GATORADE G2,LO CAL~^~~^~Quaker Oats Company ,  a unit of Pepsi Co.~^~Y~^~~^0^~~^^^^
 ~14645~^~1400~^~Fruit flavored drink, less than 3% juice, not fortified with vitamin C~^~FRUIT FLAV DRK,LESS THAN 3% JUC,NOT FORT W/ VIT C~^~~^~~^~Y~^~~^0^~~^^^^
 ~14646~^~1400~^~Fruit flavored drink containing less than 3% fruit juice, with high vitamin C~^~FRUIT FLAV DRK CONTAINING LESS THAN 3% FRUIT JUC,W/ HI VIT C~^~~^~~^~Y~^~~^0^~~^^^^
 ~14647~^~1400~^~Fruit flavored drink, reduced sugar, greater than 3% fruit juice, high vitamin C, added calcium~^~FRUIT FLAV DRK,RED SUGAR,JUC,HI VIT C,ADDED CA~^~~^~~^~~^~~^0^~~^^^^

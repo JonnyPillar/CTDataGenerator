@@ -30,47 +30,68 @@ namespace CTDataGenerator
 
 
 
-            CTEntities ctEntities = new CTEntities();
-            Random gen = new Random();
-            List<int> usersAgeRangeList = new List<int>();
-            User newUser = null;
+            //CTEntities ctEntities = new CTEntities();
+            //Random gen = new Random();
+            //List<int> usersAgeRangeList = new List<int>();
+            //User newUser = null;
 
-            int currentNumberOfUsers = ctEntities.Users.Count();
+            //int currentNumberOfUsers = ctEntities.Users.Count();
 
-            for (int i = 0; i < 101; i++)
-            {
-                usersAgeRangeList.Add(0);
-            }
+            //for (int i = 0; i < 101; i++)
+            //{
+            //    usersAgeRangeList.Add(0);
+            //}
 
-            for (int i = 0; i < 999; i++)
-            {
-                if (i + currentNumberOfUsers > 999) break;
-                newUser = new User(CreateRandomBirthday(), gen.Next(0, 2), "temppass123"); //Set Random Birthday
-                newUser.CreationTimestamp = CreateRandomJoinedDate(); //Set Random Joined Date
-                newUser.ActivityLevel = gen.Next(0, 5);
+            //for (int i = 0; i < 999; i++)
+            //{
+            //    if (i + currentNumberOfUsers > 999) break;
+            //    newUser = new User(CreateRandomBirthday(), gen.Next(0, 2), "temppass123"); //Set Random Birthday
+            //    newUser.CreationTimestamp = CreateRandomJoinedDate(); //Set Random Joined Date
+            //    newUser.ActivityLevel = gen.Next(0, 5);
 
-                //Add Activites For Users
-                newUser.ActivityLogs = CreateActivity(newUser, (PersonType) newUser.ActivityLevel);
+            //    //Add Activites For Users
+            //    newUser.ActivityLogs = CreateActivity(newUser, (PersonType) newUser.ActivityLevel);
 
-                //Record Age
-                usersAgeRangeList[DateTime.Now.Year - newUser.DateOfBirth.Year]++;
+            //    //Record Age
+            //    usersAgeRangeList[DateTime.Now.Year - newUser.DateOfBirth.Year]++;
                 
-                //Record In DB
-                ctEntities.Users.Add(newUser);
-            }
+            //    //Record In DB
+            //    ctEntities.Users.Add(newUser);
+            //}
 
             ageChart.Series.Clear();
             ageChart.Series.Add("test3");
+
+            List<int> usersAgeRangeList = generateAgeChart();
 
             for (int i = 0; i < usersAgeRangeList.Count; i++)
             {
                 ageChart.Series["test3"].Points.AddXY(i, usersAgeRangeList[i]);
             }
 
-            ageChart.Series["test3"].ChartType = SeriesChartType.FastLine;
+            ageChart.Series["test3"].ChartType = SeriesChartType.Line;
             ageChart.Series["test3"].Color = Color.Red;
 
-            ctEntities.SaveChanges();
+         
+        }
+
+        public List<int> generateAgeChart()
+        {
+            CTEntities ctEntities = new CTEntities();
+            List<int> usersAgeRangeList = new List<int>();
+
+            List<User> userList = ctEntities.Users.ToList();
+
+            for (int i = 0; i < 101; i++)
+            {
+                usersAgeRangeList.Add(0);
+            }
+            for (int i = 0; i < userList.Count; i++)
+            {
+                usersAgeRangeList[DateTime.Now.Year - userList[i].DateOfBirth.Year]++;
+            }
+
+            return usersAgeRangeList;
         }
 
         public List<ActivityLog> CreateActivity(User user, PersonType personType)

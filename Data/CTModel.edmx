@@ -40,7 +40,7 @@
           <Property Name="food_group_id" Type="int" Nullable="false" />
           <Property Name="food_name" Type="varchar" MaxLength="256" Nullable="false" />
           <Property Name="food_description" Type="varchar" MaxLength="256" Nullable="false" />
-          <Property Name="food_manufacture_name" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="food_manufacture_name" Type="varchar" MaxLength="256" Nullable="false" />
         </EntityType>
         <EntityType Name="tbl_food_group">
           <Key>
@@ -107,6 +107,7 @@
           <Property Name="user_admin" Type="tinyint" Nullable="false" />
           <Property Name="user_creation_timestamp" Type="datetime" Precision="0" Nullable="false" />
           <Property Name="user_activity_level_type" Type="int" Nullable="false" />
+          <Property Name="user_personality_type" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tbl_user_metric">
           <Key>
@@ -449,6 +450,7 @@
           <NavigationProperty Name="MetricLogs" Relationship="Self.tbl_user_id" FromRole="tbl_user" ToRole="tbl_metric_log" />
           <NavigationProperty Name="Targets" Relationship="Self.user_id" FromRole="tbl_user" ToRole="tbl_user_target" />
           <Property Name="ActivityLevel" Type="Int32" Nullable="false" />
+          <Property Name="PersonalityType" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="UserMetric">
           <Key>
@@ -826,6 +828,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="CTModel.User">
               <MappingFragment StoreEntitySet="tbl_user">
+                <ScalarProperty Name="PersonalityType" ColumnName="user_personality_type" />
                 <ScalarProperty Name="ActivityLevel" ColumnName="user_activity_level_type" />
                 <ScalarProperty Name="UserID" ColumnName="user_id" />
                 <ScalarProperty Name="DateOfBirth" ColumnName="user_dob" />
