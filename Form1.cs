@@ -1,17 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization.Charting;
-using CTDataGenerator.Data;
-using CTDataGenerator.Utils.CSVImport.FoodImport;
+using CTDataGenerator.FoodImport;
 
 namespace CTDataGenerator
 {
     public partial class Form1 : Form
     {
-        public enum PersonType { Obese, Lazy, Average, Fit, Athlete };
+        public enum PersonType
+        {
+            Obese,
+            Lazy,
+            Average,
+            Fit,
+            Athlete
+        };
 
         private const int numberOfDays = 7;
 
@@ -22,12 +24,13 @@ namespace CTDataGenerator
 
         private void connectDBButton_Click(object sender, EventArgs e)
         {
+            FoodImporter.ProcessFoodDataFiles();
+
+
             //FoodCsvImporter importer = new FoodCsvImporter();
             //importer.ProcessFoodDataFiles();
 
             //GenerateTimePerWeekChart();
-            return;
-
 
 
             //CTEntities ctEntities = new CTEntities();
@@ -54,7 +57,7 @@ namespace CTDataGenerator
 
             //    //Record Age
             //    usersAgeRangeList[DateTime.Now.Year - newUser.DateOfBirth.Year]++;
-                
+
             //    //Record In DB
             //    ctEntities.Users.Add(newUser);
             //}
@@ -71,8 +74,6 @@ namespace CTDataGenerator
 
             //ageChart.Series["test3"].ChartType = SeriesChartType.Line;
             //ageChart.Series["test3"].Color = Color.Red;
-
-         
         }
 
         //public List<int> generateAgeChart()
@@ -236,7 +237,7 @@ namespace CTDataGenerator
         //    fitUserSeries.ChartType = SeriesChartType.Line;
 
         //    timerPerWeekChart.Series.Add(fitUserSeries);
-            
+
         //    CTEntities db = new CTEntities();
 
 
@@ -250,10 +251,7 @@ namespace CTDataGenerator
         //    }
 
 
-
-
         //}
-
 
 
         //private void getData()
@@ -288,6 +286,5 @@ namespace CTDataGenerator
         //                   .Where(c => c.bedrijf_status == status)
         //                   .OrderBy(c => c.bedrijf_naam);
         //}
-
     }
 }

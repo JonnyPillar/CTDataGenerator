@@ -29,11 +29,11 @@ namespace CTDataGenerator.Data
         public virtual DbSet<ActivityLog> ActivityLogs1 { get; set; }
         public virtual DbSet<FoodGroup> FoodGroups { get; set; }
         public virtual DbSet<FoodLog> FoodLogs1 { get; set; }
-        public virtual DbSet<FoodNutrientLog> FoodNutrientLogs { get; set; }
+        public virtual DbSet<FoodNutrients> FoodNutrients { get; set; }
         public virtual DbSet<Food> Foods { get; set; }
         public virtual DbSet<MetricLog> MetricLogs1 { get; set; }
         public virtual DbSet<Metric> Metrics1 { get; set; }
-        public virtual DbSet<Nutrient> Nutrients1 { get; set; }
+        public virtual DbSet<Nutrient> Nutrients { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }

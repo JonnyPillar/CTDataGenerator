@@ -59,7 +59,10 @@
     <Compile Include="Data\Activity.cs">
       <DependentUpon>CTDatabase.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\ActivityLevel.cs" />
+    <Compile Include="Data\FoodNutrients.cs">
+      <DependentUpon>CTDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Models\ActivityLevel.cs" />
     <Compile Include="Data\ActivityLog.cs">
       <DependentUpon>CTDatabase.tt</DependentUpon>
     </Compile>
@@ -87,23 +90,20 @@
     <Compile Include="Data\FoodLog.cs">
       <DependentUpon>CTDatabase.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\FoodNutrientLog.cs">
-      <DependentUpon>CTDatabase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Gender.cs" />
+    <Compile Include="Data\Models\Gender.cs" />
     <Compile Include="Data\Metric.cs">
       <DependentUpon>CTDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\MetricLog.cs">
       <DependentUpon>CTDatabase.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\Models\Activity.cs" />
-    <Compile Include="Data\Models\ActivityLog.cs" />
-    <Compile Include="Data\Models\Food.cs" />
-    <Compile Include="Data\Models\FoodGroup.cs" />
-    <Compile Include="Data\Models\FoodNutrientLog.cs" />
-    <Compile Include="Data\Models\Nutrient.cs" />
-    <Compile Include="Data\Models\User.cs" />
+    <Compile Include="Data\PartialModels\Activity.cs" />
+    <Compile Include="Data\PartialModels\ActivityLog.cs" />
+    <Compile Include="Data\PartialModels\Food.cs" />
+    <Compile Include="Data\PartialModels\FoodGroup.cs" />
+    <Compile Include="Data\PartialModels\FoodNutrients.cs" />
+    <Compile Include="Data\PartialModels\Nutrient.cs" />
+    <Compile Include="Data\PartialModels\User.cs" />
     <Compile Include="Data\Nutrient.cs">
       <DependentUpon>CTDatabase.tt</DependentUpon>
     </Compile>
@@ -119,7 +119,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils\CSVImport\FoodImport\FoodCsvImporter.cs" />
+    <Compile Include="Utils\CSVImport\FoodImport\ImportFoodNutrition.cs" />
+    <Compile Include="Utils\CSVImport\FoodImport\ImportFoods.cs" />
+    <Compile Include="Utils\CSVImport\FoodImport\ImportNutrients.cs" />
+    <Compile Include="Utils\CSVImport\FoodImport\OldFoodCsvImporter.cs" />
     <Compile Include="Utils\CSVImport\FoodImport\ImportFoodGroups.cs" />
     <Compile Include="Utils\PasswordHasher.cs" />
     <Compile Include="Utils\SecurityUtil.cs" />

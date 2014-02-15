@@ -9,7 +9,7 @@
         <EntityTypeShape EntityType="CTDatabase.ActivityLog" Width="1.5" PointX="4.375" PointY="0.5" />
         <EntityTypeShape EntityType="CTDatabase.FoodGroup" Width="1.5" PointX="7.375" PointY="5.625" />
         <EntityTypeShape EntityType="CTDatabase.FoodLog" Width="1.5" PointX="2.625" PointY="4.75" />
-        <EntityTypeShape EntityType="CTDatabase.FoodNutrientLog" Width="1.5" PointX="6.75" PointY="3" />
+        <EntityTypeShape EntityType="CTDatabase.FoodNutrients" Width="1.5" PointX="6.75" PointY="3" />
         <EntityTypeShape EntityType="CTDatabase.Food" Width="1.5" PointX="4.75" PointY="4.75" />
         <EntityTypeShape EntityType="CTDatabase.MetricLog" Width="1.5" PointX="2.375" PointY="0.5" />
         <EntityTypeShape EntityType="CTDatabase.Metric" Width="1.5" PointX="0.5" PointY="0.5" />

@@ -16,7 +16,7 @@ namespace CTDataGenerator.Data
     {
         public Nutrient()
         {
-            this.NutritionLogs = new HashSet<FoodNutrientLog>();
+            this.NutritionLogs = new HashSet<FoodNutrients>();
         }
     
         public int NutrientID { get; set; }
@@ -25,6 +25,6 @@ namespace CTDataGenerator.Data
         public string Name { get; set; }
         public int DecimalRounding { get; set; }
     
-        public virtual ICollection<FoodNutrientLog> NutritionLogs { get; set; }
+        public virtual ICollection<FoodNutrients> NutritionLogs { get; set; }
     }
 }

@@ -276,7 +276,7 @@
           <EntitySet Name="ActivityLogs1" EntityType="CTDatabase.ActivityLog" />
           <EntitySet Name="FoodGroups" EntityType="CTDatabase.FoodGroup" />
           <EntitySet Name="FoodLogs1" EntityType="CTDatabase.FoodLog" />
-          <EntitySet Name="FoodNutrientLogs" EntityType="CTDatabase.FoodNutrientLog" />
+          <EntitySet Name="FoodNutrients" EntityType="CTDatabase.FoodNutrients" />
           <EntitySet Name="Foods" EntityType="CTDatabase.Food" />
           <EntitySet Name="MetricLogs1" EntityType="CTDatabase.MetricLog" />
           <EntitySet Name="Metrics1" EntityType="CTDatabase.Metric" />
@@ -304,11 +304,11 @@
           </AssociationSet>
           <AssociationSet Name="fk_food_nutrient_food_id" Association="CTDatabase.fk_food_nutrient_food_id">
             <End Role="tbl_foods" EntitySet="Foods" />
-            <End Role="tbl_food_nutrition_logs" EntitySet="FoodNutrientLogs" />
+            <End Role="tbl_food_nutrition_logs" EntitySet="FoodNutrients" />
           </AssociationSet>
           <AssociationSet Name="fk_food_nutrient_nutrient_id" Association="CTDatabase.fk_food_nutrient_nutrient_id">
             <End Role="tbl_nutrients" EntitySet="Nutrients1" />
-            <End Role="tbl_food_nutrition_logs" EntitySet="FoodNutrientLogs" />
+            <End Role="tbl_food_nutrition_logs" EntitySet="FoodNutrients" />
           </AssociationSet>
           <AssociationSet Name="FK_tbl_metric_id" Association="CTDatabase.FK_tbl_metric_id">
             <End Role="tbl_metrics" EntitySet="Metrics1" />
@@ -368,7 +368,7 @@
           <NavigationProperty Name="Food" Relationship="CTDatabase.FK_food_log_food_id" FromRole="tbl_food_logs" ToRole="tbl_foods" />
           <NavigationProperty Name="User" Relationship="CTDatabase.FK_food_log_user_id" FromRole="tbl_food_logs" ToRole="tbl_users" />
         </EntityType>
-        <EntityType Name="FoodNutrientLog">
+        <EntityType Name="FoodNutrients">
           <Key>
             <PropertyRef Name="NutrientLogID" />
           </Key>
@@ -505,7 +505,7 @@
         </Association>
         <Association Name="fk_food_nutrient_food_id">
           <End Type="CTDatabase.Food" Role="tbl_foods" Multiplicity="1" />
-          <End Type="CTDatabase.FoodNutrientLog" Role="tbl_food_nutrition_logs" Multiplicity="*" />
+          <End Type="CTDatabase.FoodNutrients" Role="tbl_food_nutrition_logs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tbl_foods">
               <PropertyRef Name="FoodID" />
@@ -517,7 +517,7 @@
         </Association>
         <Association Name="fk_food_nutrient_nutrient_id">
           <End Type="CTDatabase.Nutrient" Role="tbl_nutrients" Multiplicity="1" />
-          <End Type="CTDatabase.FoodNutrientLog" Role="tbl_food_nutrition_logs" Multiplicity="*" />
+          <End Type="CTDatabase.FoodNutrients" Role="tbl_food_nutrition_logs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tbl_nutrients">
               <PropertyRef Name="NutrientID" />
@@ -606,8 +606,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="FoodNutrientLogs">
-            <EntityTypeMapping TypeName="CTDatabase.FoodNutrientLog">
+          <EntitySetMapping Name="FoodNutrients">
+            <EntityTypeMapping TypeName="CTDatabase.FoodNutrients">
               <MappingFragment StoreEntitySet="tbl_food_nutrition_logs">
                 <ScalarProperty Name="Value" ColumnName="Value" />
                 <ScalarProperty Name="NutrientID" ColumnName="NurtientID" />

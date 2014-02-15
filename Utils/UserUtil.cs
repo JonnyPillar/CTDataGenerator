@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CTDataGenerator.Data;
+using CTDataGenerator.Data.Models;
 
 namespace CTDataGenerator.Utils
 {
@@ -13,7 +9,7 @@ namespace CTDataGenerator.Utils
         {
             DateTime maxUserAge = DateTime.Now.AddYears(-80); // Max 80 Years Old
             DateTime minUserAge = DateTime.Now.AddYears(-18); //Min 18 years old
-            Random randomNoGenerator = new Random();
+            var randomNoGenerator = new Random();
             int birthdayRange = (minUserAge - maxUserAge).Days; //Set The Lowest Age We Have
             maxUserAge = maxUserAge.AddDays(randomNoGenerator.Next(birthdayRange)); //Create Number Between Low and 0
             return maxUserAge;
@@ -21,8 +17,8 @@ namespace CTDataGenerator.Utils
 
         public static DateTime GenerateRandomJoinedDate()
         {
-            DateTime userJoinedDate = new DateTime(2012, 1, 1); //Eariler Start Date
-            Random randomNoGenerator = new Random();
+            var userJoinedDate = new DateTime(2012, 1, 1); //Eariler Start Date
+            var randomNoGenerator = new Random();
 
             int creationRange = (DateTime.Today - userJoinedDate).Days;
             userJoinedDate = userJoinedDate.AddDays(randomNoGenerator.Next(creationRange));
@@ -35,7 +31,7 @@ namespace CTDataGenerator.Utils
             {
                 //M : 160 - 175 - 201
 
-                Random r = new Random();
+                var r = new Random();
                 r.Next(160, 200);
             }
             else if (gender.Equals(Gender.Female))
@@ -54,7 +50,6 @@ namespace CTDataGenerator.Utils
             //M : 160 - 175 - 201
 
             //W : 137 - 163 - 191
-
 
 
             //Generate Weight 6 - 20
@@ -109,6 +104,5 @@ namespace CTDataGenerator.Utils
              * 
              */
         }
-
     }
 }

@@ -17,7 +17,7 @@ namespace CTDataGenerator.Data
         public Food()
         {
             this.FoodLogs = new HashSet<FoodLog>();
-            this.FoodNutrientLogs = new HashSet<FoodNutrientLog>();
+            this.FoodNutrientLogs = new HashSet<FoodNutrients>();
         }
     
         public int FoodID { get; set; }
@@ -30,6 +30,6 @@ namespace CTDataGenerator.Data
     
         public virtual FoodGroup FoodGroup { get; set; }
         public virtual ICollection<FoodLog> FoodLogs { get; set; }
-        public virtual ICollection<FoodNutrientLog> FoodNutrientLogs { get; set; }
+        public virtual ICollection<FoodNutrients> FoodNutrientLogs { get; set; }
     }
 }
