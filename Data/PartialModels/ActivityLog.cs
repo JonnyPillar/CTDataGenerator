@@ -22,5 +22,11 @@ namespace CTDataGenerator.Data
             FileURL = fileUrl;
             StartDate = startDate;
         }
+
+        public ActivityLog(int activityID, int userID)
+        {
+            ActivityID = activityID;
+            UserID = userID;
+        }
     }
 }

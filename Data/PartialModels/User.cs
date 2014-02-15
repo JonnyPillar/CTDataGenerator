@@ -101,7 +101,7 @@ namespace CTDataGenerator.Data
         /// </summary>
         /// <param name="activityLevel">Activity Level</param>
         /// <param name="personalityType">Personality Type</param>
-        public User(ActivityLevel activityLevel, int personalityType)
+        public User(ActivityLevel activityLevel, PersonalityType personalityType)
         {
             var rand = new Random();
             DateOfBirth = UserUtil.GenerateRandomAge();
@@ -113,7 +113,7 @@ namespace CTDataGenerator.Data
             CreationTimestamp = UserUtil.GenerateRandomJoinedDate();
 
             ActivityLevel = (int) activityLevel;
-            Personality = personalityType;
+            Personality = (int)personalityType;
 
             ActivityLogs = new HashSet<ActivityLog>();
             FoodLogs = new HashSet<FoodLog>();

@@ -6,15 +6,6 @@ namespace CTDataGenerator
 {
     public partial class Form1 : Form
     {
-        public enum PersonType
-        {
-            Obese,
-            Lazy,
-            Average,
-            Fit,
-            Athlete
-        };
-
         private const int numberOfDays = 7;
 
         public Form1()
